@@ -21,7 +21,7 @@ class AuthController extends Controller
         if ($user) {
             // jika user nya memiliki level admin
             if ($user->level == 'admin') {
-                // arahkan ke halaman admin ya :P
+                // arahkan ke halaman admin ya 
                 return redirect()->intended('admin');
             }
             // jika user nya memiliki level user
