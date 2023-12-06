@@ -25,4 +25,10 @@ Route::group(
     }
 );
 
+Route::middleware('auth:sanctum')->post('/prodi/store', [ProdiController::class, 'store']);
+Route::middleware('auth:sanctum')->post('/prodi/update/{id}', [ProdiController::class, 'update']);
+Route::middleware('auth:sanctum')->post('/prodi/delete/{id}', [ProdiController::class, 'delete']);
+
+
+
 

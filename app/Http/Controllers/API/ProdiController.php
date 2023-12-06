@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Prodi;
+use App\Http\Controllers\API\BaseController as BaseController;
 
 class ProdiController extends BaseController
 {
@@ -15,6 +16,7 @@ class ProdiController extends BaseController
     {
         //
         $prodis = Prodi::all();
+        $succes['data'] = $prodis;
         return $this->sendResponse($prodis, "Data Prodi");
     }
 
@@ -40,7 +42,7 @@ class ProdiController extends BaseController
 
         if ($prodi->save()) {
             $success['data'] = $prodi;
-            return $this->sendResponse($success . 'Data prodi berhasil diperbarui.');
+            return $this->sendResponse($success, 'Data prodi berhasil diperbarui.');
         } else {
             return $this->sendError('Error.', ['error' => 'Data prodi gagal diperbarui.']);
         }
@@ -77,7 +79,7 @@ class ProdiController extends BaseController
 
         if ($prodi->save()) {
             $success['data'] = $prodi;
-            return $this->sendResponse($success . 'Data prodi berhasil diperbarui.');
+            return $this->sendResponse($success, 'Data prodi berhasil diperbarui.');
         } else {
             return $this->sendError('Error.', ['error' => 'Data prodi gagal diperbarui.']);
         }
